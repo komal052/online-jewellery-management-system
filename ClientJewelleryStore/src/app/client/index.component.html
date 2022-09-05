@@ -1,0 +1,223 @@
+<app-header></app-header>
+<!--slider area start-->
+<div class="slider_area owl-carousel">
+  <div class="single_slider" data-bgimg="/assets/client/assets/img/slider/banner2.jpg">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="slider_content">
+            <p>exclusive offer -10% off this week</p>
+            <h1>jewelry arrivals</h1>
+            <p class="slider_price">starting at <span>₹2199.oo</span></p>
+            <a class="button" [routerLink]="['/client/showsubjewellery','all']">shopping now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="single_slider" data-bgimg="/assets/client/assets/img/slider/banner6.jpg">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12">
+          <div class="slider_content">
+            <p>exclusive offer -10% off this week</p>
+            <h1>jewelry arrivals</h1>
+            <p class="slider_price">starting at <span>₹2199.oo</span></p>
+            <a class="button" [routerLink]="['/client/showsubjewellery','all']">shopping now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--slider area end-->
+
+
+<!--1st banner area start-->
+<section class="banner_section">
+  <div class="container">
+    <div class="row ">
+      <div class="col-lg-4 col-md-6">
+        <div class="single_banner">
+          <div class="banner_thumb">
+            <a [routerLink]="['/client/showsubjewellery','Ring']">
+              <img src="/assets/client/assets/img/s-product/ring.jpg" alt="" width="600" height="389"></a>
+            <div class="banner_content">
+              <h2>Rings</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single_banner">
+          <div class="banner_thumb">
+            <a [routerLink]="['/client/showsubjewellery','Necklace']"><img
+                src="/assets/client/assets/img/s-product/necklace2.jpg" alt="" width="600" height="389"></a>
+            <div class="banner_content">
+              <h2>Necklaces</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single_banner bottom">
+          <div class="banner_thumb">
+            <a [routerLink]="['/client/showsubjewellery','Bangle']"><img src="/assets/client/assets/img/s-product/bangle1.jpg"
+                alt="" width="600" height="389"></a>
+            <div class="banner_content">
+              <h2>Bangles</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--2nd banner area end-->
+
+<section class="banner_section">
+  <div class="container">
+    <div class="row ">
+      <div class="col-lg-4 col-md-6">
+        <div class="single_banner">
+          <div class="banner_thumb">
+            <a [routerLink]="['/client/showsubjewellery','Earing']">
+              <img src="/assets/client/assets/img/s-product/earing.jpg" alt="" width="600" height="389"></a>
+            <div class="banner_content">
+              <h2 style="color:white;">Earings</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single_banner">
+          <div class="banner_thumb">
+            <a [routerLink]="['/client/showsubjewellery','Bracelet']"><img
+                src="/assets/client/assets/img/s-product/bracelet.jpg" alt="" width="600" height="389"></a>
+            <div class="banner_content">
+              <h2>Bracelet</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- <div class="col-lg-4 col-md-6">
+        <div class="single_banner bottom">
+          <div class="banner_thumb">
+            <a [routerLink]="['/client/showsubjewellery','Bangle']"><img src="/assets/client/assets/img/s-product/bangle1.jpg"
+                alt="" width="600" height="389"></a>
+            <div class="banner_content">
+              <h2>Bangles</h2>
+            </div>
+          </div>
+        </div>
+
+      </div> -->
+    </div>
+  </div>
+</section>
+
+
+<!--product section area start-->
+
+<!--product section area end-->
+
+<!--banner fullwidth start-->
+<section class="banner_fullwidth">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12">
+        <div class="banner_text">
+          <p>Sale Off 20% All Products</p>
+          <h2>New Trending Collection</h2>
+          <span>We Believe That Good Design is Always in Season</span>
+          <a routerLink="/client/showsubjewellery/all">shopping Now</a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--banner area end-->
+
+<!--product section area start-->
+<section class="product_section p_bottom p_section1">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section_title">
+          <h2>Bestselling Products</h2>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="product_area ">
+          <div class="product_container bottom">
+            <div class="custom-row product_row1">
+              <div *ngFor="let p of subjewelleryData">
+                <div class="custom-col-5">
+                  <div class="single_product">
+                    <div class="product_thumb">
+                      <a class="primary_img" >
+                        <img src="{{baseUrl + p.images}}" width="300" height="300" alt=""
+                        [routerLink]="['/client/productdetails',p.subtype_jewellery_id_pk]"></a>
+                    </div>
+                    <div class="product_content">
+                      <h3><a [routerLink]="['/client/productdetails',p.subtype_jewellery_id_pk]">{{p.jewellery_name}}</a></h3>
+                      <span class="current_price">₹{{p.price}}/-</span>
+                      <div class="product_hover">
+                        <div class="product_ratings">
+                          <ul>
+                            <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
+                            <li><a href="#"><i class="ion-ios-star-outline"></i></a></li>
+                          </ul>
+                        </div>
+                        <div class="product_desc">
+                          <p>{{p.description}}</p>
+                        </div>
+                        <div class="action_links">
+                          <ul>
+                            <li><a routerLink="/client/wishlist" data-placement="top" title="Add to Wishlist"
+                                data-toggle="tooltip"><span class="icon icon-Heart"></span></a></li>
+                                
+                          <form method="post" #form="ngForm" (ngSubmit)="onCartsubmit(form)">
+                            <li class="add_to_cart"><a routerLink="/client/cart" title="add to cart">add to cart</a>
+                            </li>
+                          </form>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--product section area end-->
+
+
+
+
+
+
+<!-- Plugins JS -->
+<!-- <script src="assets/client/assets/js/plugins.js"></script> -->
+
+<!-- Main JS -->
+<!-- <script src="assets/client/assets/js/main.js"></script> -->

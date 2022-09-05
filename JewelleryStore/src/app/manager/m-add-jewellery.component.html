@@ -1,0 +1,103 @@
+<app-m-header></app-m-header>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Jewellery</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert jewellery</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Jewellery</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" #form="ngForm" (ngSubmit)="onsubmit(form)"
+                                enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="jwlname">Jewellery Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control " id="jwlname" name="jwlname"
+                                                    placeholder="Enter  jewellery name.." ngModel required
+                                                    #jwlname="ngModel" [(ngModel)]="this.jewellerydata.jewellery_name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="dcolor">Diamond Color<span
+                                                    class="text-danger">*</span>
+                                            </label>
+
+                                            <div class="col-lg-6">
+                                                <select class="form-control " name="diamond_id_pk"
+                                                    #diamond_id_pk="ngModel" [(ngModel)]="this.jewellerydata.diamond_id_fk" 
+                                                    [compareWith]="comaprefun" required>
+                                                     <option value="0">SELECT</option>
+                                                    <option *ngFor="let d of diamonddata;" value="{{d.diamond_id_pk}}">
+                                                        {{d.diamond_color}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="shape">Shape
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="shape" name="shape"
+                                                    placeholder="shape.." ngModel required #shape="ngModel"
+                                                    [(ngModel)]="this.jewellerydata.shape">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="gtype">Gold type
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control " name="gold_id_pk"
+                                                    #gold_id_pk="ngModel" [(ngModel)]="this.jewellerydata.gold_id_fk"
+                                                    [compareWith]="comaprefun1" required>
+                                                    <option value="0">SELECT</option>
+                                                    <option *ngFor="let g of golddata;" value="{{g.gold_id_pk}}">
+                                                        {{g.gold_type}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="img">Image <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="file" name="file" #jewellery_photo
+                                                    (change)="uploadFile(jewellery_photo.files)">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary" >Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

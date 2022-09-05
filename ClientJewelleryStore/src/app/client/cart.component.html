@@ -1,0 +1,92 @@
+<app-header></app-header>
+<!--shopping cart area start -->
+<div class="shopping_cart_area">
+  <div class="container">
+      <form action="#">
+          <div class="row">
+
+              <div class="col-12">
+                  <div class="table_desc">
+                      <div class="cart_page table-responsive">
+                          <table>
+                      <thead>
+                          <tr>
+                            <!-- <th>No</th> -->
+                              <th class="product_remove">Delete</th>
+                              <th class="product_thumb">Image</th>
+                              <th class="product_name">Product Name</th>
+                              <th class="product-price">Price</th>
+                              <th class="product_quantity">Quantity</th>
+                              <!-- <th class="product_quantity">Update</th> -->
+
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let c of cartproductdata let no=index">
+                              <!-- <td>{{no+1}}</td> -->
+                              <td class="product_remove" ><a (click)="deletecartProduct(c.cart_product_id_pk)"><i class="fa fa-trash-o"></i></a></td>
+                              <td class="product_thumb"><img style="width: 350; height: 350;" src="{{baseUrl + c.images}}" alt="" ></td>
+                              <td class="product_name">{{c.jewellery_name}}</td>
+                              <td class="product-price">₹{{c.price}}/-</td>
+                              <td class="product_quantity">{{c.quantity}}</td>
+
+                              <!-- <td><div class="cart_submit">
+                               <a [routerLink]="['/client/updatecart',c.cart_product_id_pk]"> <button type="submit">update cart</button></a>
+                            </div></td> -->
+
+                          </tr >
+
+                      </tbody>
+                  </table>
+                      </div>
+
+                  </div>
+               </div>
+           </div>
+           <!--coupon code area start-->
+           <div class="shopping_cart_area">
+            <div class="container">
+                <form action="#">
+                     <!--coupon code area start-->
+                    <div class="coupon_area">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="coupon_code right">
+                                    <h3>Cart Totals</h3>
+                                    <div class="coupon_inner">
+                                       <!-- <div class="cart_subtotal">
+                                           <p>Subtotal</p>
+                                           <p class="cart_amount">£215.00</p>
+                                       </div> -->
+                                       <div class="cart_subtotal ">
+                                           <p>Shipping</p>
+                                           <a href="#">Free shipping</a>
+                                       </div>
+
+                                       <form method="post" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                                       <div class="cart_subtotal">
+                                           <p>Total</p>
+
+                                           <p class="cart_amount" name="total_amount" #total_amount="ngModel"
+                                           [(ngModel)]="this.cartData.total_amount">
+                                             ₹{{this.total}}/-</p>
+
+                                       </div>
+                                       <div class="checkout_btn"><button type="submit" class="btn btn-link">
+                                           Proceed to Checkout</button>
+                                       </div>
+                                      </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--coupon code area end-->
+                </form>
+            </div>
+        </div>
+          <!--coupon code area end-->
+      </form>
+  </div>
+</div>
+<!--shopping cart area end -->

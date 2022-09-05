@@ -1,0 +1,70 @@
+
+<app-m-header></app-m-header>
+
+
+
+
+<!--**********************************
+    Content body start
+***********************************-->
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Diamond</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)"> Diamond Data </a></li>
+            </ol>
+        </div>
+        <!-- row -->
+
+
+        <div class="row">
+            <div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Diamond Data</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example3" class="display min-w850">
+                    <thead>
+                        <tr>
+                                    <th>NO</th>
+                                    <th>Certificate Details</th>
+                                    <th>Diamond Details</th>
+                                    <th>Shape</th>
+                                    <th>Cost</th>
+                                    <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of diamonddata; let no=index;">
+                            <td>{{no+1}}</td>
+                            <td> <b>Certificate No:</b> {{d.certi_no}} <br><br>
+                                <b>Certificate :</b> <img width="200" src="{{baseUrl + d.image}}" alt=""></td>
+                            <td><b>Color : </b> {{d.diamond_color}}  <br> <b>Cut :</b> {{d.diamond_cut}}  <br>  <b>Polish : </b> {{d.polish}}  <br> <b>Clarity : </b> {{d.clarity}}</td>
+                            <td><b>Shape : </b> {{d.shape}}  <br> <b> weight:</b> {{d.stone_weight}}</td>
+                           
+                            <td><b>SellingCost : </b> {{d.selling_cost}}  <br> <b>BuyingCost: </b> {{d.buying_cost}}</td>
+                            <td>
+                              <div class="d-flex">
+                                <a  class="btn btn-primary shadow btn-xs sharp mr-1" [routerLink]="['/manager/m_edit_diamond',d.diamond_id_pk]"><i class="fa fa-pencil"></i></a>
+                                <a  class="btn btn-danger shadow btn-xs sharp"(click)="deletediamond(d.diamond_id_pk)"><i class="fa fa-trash"></i></a>
+                              </div>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+</div>
+
+

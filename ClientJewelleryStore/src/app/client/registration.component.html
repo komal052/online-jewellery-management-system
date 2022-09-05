@@ -1,0 +1,179 @@
+<app-header></app-header>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!--breadcrumbs area start-->
+<div class="breadcrumbs_area">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="breadcrumb_content">
+                  <h3>My account</h3>
+                  <ul>
+                      <li><a href="/client">home</a></li>
+                      <li></li>
+                      <li>Registration</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!--breadcrumbs area end-->
+
+<br>
+<!-- customer login start -->
+<div class="customer_login">
+  <div class="container">
+      <div class="row">
+         <!--login area start-->
+          <div class="col-lg-6 col-md-6">
+              <div class="account_form">
+                  <h2>Registration</h2>
+                  <form  method="post" #form="ngForm"
+                  (ngSubmit)="onSubmit(form)">
+                      <p>
+                          <label>First Name <span>*</span></label>
+                          <input type="text" class="form-control" id="Fname"
+                          name="Fname" #Fname="ngModel"
+                          [(ngModel)]="this.userData.f_name" placeholder="Enter first name"
+                          required Fname>
+                          <span style="color:red ;" class="help-block" *ngIf="!Fname.valid && Fname.touched">plz enter firstname</span>
+                       </p>
+                      
+
+                       <p>
+                          <label>Last Name <span>*</span></label>
+                          <input type="text"  type="text" class="form-control" id="user_lname"
+                          name="user_lname" #Lname="ngModel"
+                          [(ngModel)]="this.userData.l_name" placeholder="Enter Last name"
+                          required >
+                          <span style="color:red ;" class="help-block" *ngIf="!Lname.valid && Lname.touched">plz enter Lastname</span>
+                       </p>
+                       <p>
+                          <label>Gender<span>*</span></label>
+                          <br>
+                          Male:<input type="radio"  id="male" name="gen" value="male"
+                          #Gen="ngModel" [(ngModel)]="this.userData.gender" style="height: 20px;">
+                          Female:<input type="radio" id="female" name="gen" value="female"
+                          #Gen="ngModel" [(ngModel)]="this.userData.gender" style="height: 20px;">
+                          <span style="color:red ;" class="help-block" *ngIf="!Gen.valid && Gen.touched">choose one</span>
+                       </p>
+                        <p>
+                            <label>Birthdate<span>*</span></label>
+                            <input type="date" id="user_birth"
+                            name="user_birth" #DOB="ngModel"
+                            [(ngModel)]="this.userData.birthdate" required>
+                            <span style="color:red ;" class="help-block" *ngIf="!DOB.valid && DOB.touched">Choose Birthdate</span>
+                        </p>
+                        <p>
+                            <label>Status<span>*</span></label>
+                            <select name="status"
+                            #status="ngModel"
+                            [(ngModel)]="this.userData.status" required (change)="OnStatusChange(this.userData.status)">
+                                <option disabled>select status</option>
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                            </select>
+                            <span style="color:red ;" class="help-block" *ngIf="!status.valid && status.touched">Select one</span>
+                        </p>
+                        <p>
+                            <label>Anniversary date<span>*</span></label>
+                            <input type="date" id="user_anniversary"
+                            name="user_anniversary" #Anni="ngModel"
+                            [(ngModel)]="this.userData.anniversary_date"  [disabled]="!status">
+                        </p>
+                        <p>
+                            <label>State<span>*</span></label>
+                            <select  name="state_id_fk"
+                            #state_id_fk="ngModel"
+                            [(ngModel)]="this.userData.state_id_fk"
+                            [compareWith]="compareFn" (change)="OnChange($event)" required>
+                            <option disabled>--Select State--</option>
+                            <option *ngFor="let state of stateList;" value="{{state.state_id_pk}}">
+                                {{state.state_name}}
+                            </option>
+                            </select>
+                            <span style="color:red ;" class="help-block" *ngIf="!state_id_fk.valid && state_id_fk.touched">Choose..</span>
+                        </p>
+                        <p>
+                            <label>City<span>*</span></label>
+                            <select class="form-control" name="city_id_fk"
+                            #city_id_fk="ngModel" [(ngModel)]="this.userData.city_id_fk"
+                            [compareWith]="compareFn1" required>
+                            <option disabled>--Select City--</option>
+                            <option *ngFor="let city of cityList;" value="{{city.city_id_pk}}">
+                                {{city.city_name}}
+                            </option>
+                            </select>
+                        </p>
+                        <p>
+                            <label>Address<span>*</span></label>
+                            <textarea id="user_address" name="user_address"
+                            rows="5" placeholder="Enter address" #Address="ngModel"
+                            [(ngModel)]="this.userData.address" required></textarea>
+                            <span style="color:red ;" class="help-block" *ngIf="!Address.valid && Address.touched">Enter Address</span>
+                        </p>
+                        <p>
+                          <label>Pincode<span>*</span></label>
+                          <input type="text"  type="text" class="form-control" id="user_pincode"
+                          name="user_pincode" #pincode="ngModel"
+                          [(ngModel)]="this.userData.pincode" placeholder="Enter pincode"
+                          required>
+                          <span style="color:red ;" class="help-block" *ngIf="!pincode.valid && pincode.touched">Enter pincode</span>
+
+                      </p>
+                        <p>
+                            <label>Email<span>*</span></label>
+                            <input type="email" id="user_email"
+                            name="user_email" #Email="ngModel" [(ngModel)]="this.userData.email"
+                            placeholder="Your valid email.." required>
+                            <span style="color:red ;" class="help-block" *ngIf="!Email.valid && Email.touched">Enter Email</span>
+                        </p>
+                        <p>
+                            <label>Password<span>*</span></label>
+                            <input type="password"  id="user_pass"
+                            name="user_pass" #Pass="ngModel"
+                            [(ngModel)]="this.userData.password"
+                            placeholder="Choose a safe one.." required>
+                            <span style="color:red ;" class="help-block" *ngIf="!Pass.valid && Pass.touched">Enter password</span>
+                        </p>
+                        <p>
+                            <label>contact<span>*</span></label>
+                            <input type="text"  id="user_contact"
+                            name="user_contact" #Cnt="ngModel"
+                            [(ngModel)]="this.userData.contact" placeholder="enter a contact no"
+                            required >
+                            <span style="color:red ;" class="help-block" *ngIf="!Cnt.valid && Cnt.touched">Enter Contactno</span>
+                        </p>
+
+
+                        <p>
+                            <label>profile <span>*</span></label>
+                                <input type="file" name="file" #u_profile
+                                (change)="uploadFile(u_profile.files)">
+                        </p>
+
+                        <button type="submit">login</button>
+                  </form>
+               </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="account_form">
+                <h2>Login</h2>
+                <form action="#">
+                    <div class="login_submit">
+                        <h3>Already have an account?</h3>
+                        <br/>
+                       <a routerLink="/client/login">Login from here..</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a routerLink="/client/login"><button type="submit"> Login</button></a>
+
+                    </div>
+
+                </form>
+             </div>
+        </div>
+          <!--login area start-->
+
+      </div>
+  </div>
+</div>
+<!-- customer login end -->

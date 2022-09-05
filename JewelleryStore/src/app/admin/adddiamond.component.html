@@ -1,0 +1,128 @@
+<app-header></app-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Diamond</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert Diamond</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Diamond</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide"  method="post" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="diamond_color">Diamond color
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="diamond_color" name="diamond_color" #diamondColor="ngModel"
+                                                [(ngModel)]="this.diamondData.diamond_color" placeholder="Enter a diamond color" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="diamond_cut">Diamond cut <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="diamond_cut" name="diamond_cut" #diamondCut="ngModel" 
+                                                [(ngModel)]="this.diamondData.diamond_cut" placeholder="Enter a diamond cut" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="polish">Polish
+                                              <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="polish" name="polish" #Polish="ngModel" 
+                                              [(ngModel)]="this.diamondData.polish" placeholder="Enter a polish" required>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="clarity">Clarity
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="clarity" name="clarity" #Clarity="ngModel" 
+                                            [(ngModel)]="this.diamondData.clarity" placeholder="Enter a clarity" required>
+                                        </div>
+                                    </div>
+                                    <div  class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="certi_id_fk">Certificate No
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <!-- <input type="text" class="form-control" id="shape" name="certi_id_fk" #certi_id_pk="ngModel" 
+                                            [(ngModel)]="this.diamondData.certi_id_fk" placeholder="Enter a certi" required>  -->
+
+                                        <select class="form-control  " name="certi_id_fk"
+                                        #certi_id_pk="ngModel" [(ngModel)]="this.diamondData.certi_id_fk" [compareWith]="compareFn" required >
+                                        <option value="0">SELECT</option>
+                                           <option *ngFor="let c of certiData;" value="{{c.certi_id_pk}}">
+                                             {{c.certi_no}}
+                                           </option>
+                                       </select>
+                                    </div>
+                                    </div>
+                                <div class="form-group row">
+                                  <label class="col-lg-4 col-form-label" for="shape">Shape
+                                      <span class="text-danger">*</span>
+                                  </label>
+                                  <div class="col-lg-6">
+                                      <input type="text" class="form-control" id="shape" name="shape" #Shape="ngModel" 
+                                      [(ngModel)]="this.diamondData.shape" placeholder="Enter a shape" required>
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="stone_weight">Stone Weight
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="stone_weight" name="stone_weight" #stoneWeight="ngModel" 
+                                    [(ngModel)]="this.diamondData.stone_weight" placeholder="Enter a stone weight" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-lg-4 col-form-label" for="selling_cost">Selling Cost
+                                  <span class="text-danger">*</span>
+                              </label>
+                              <div class="col-lg-6">
+                                  <input type="text" class="form-control" id="selling_cost" name="selling_cost" #sellingCost="ngModel" 
+                                  [(ngModel)]="this.diamondData.selling_cost" placeholder="Enter a selling cost" required>
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-lg-4 col-form-label" for="buying_cost">Buying Cost
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-lg-6">
+                                <input type="text" class="form-control" id="buying_cost" name="buying_cost" #buyingCost="ngModel" 
+                                [(ngModel)]="this.diamondData.buying_cost" placeholder="Enter a buying cost" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-lg-8 ml-auto">
+                              <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Sumbit </button>
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

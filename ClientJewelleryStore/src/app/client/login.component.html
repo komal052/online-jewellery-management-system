@@ -1,0 +1,61 @@
+<app-header></app-header>
+<!--breadcrumbs area start-->
+
+<!--breadcrumbs area end-->
+
+<br>
+<!-- customer login start -->
+<div class="customer_login">
+  <div class="container">
+      <div class="row">
+         <!--login area start-->
+          <div class="col-lg-6 col-md-6">
+              <div class="account_form">
+                  <h2>login</h2>
+                  <form #form="ngForm"  (ngSubmit)="onSubmit(form)" method="post">
+                      <p>
+                          <label>Username or email <span>*</span></label>
+                          <input type="text" name="email" #email="ngModel"
+                          [(ngModel)]="this.userData.email" required>
+                          <span style="color:red ;" class="help-block" *ngIf="!email.valid && email.touched">Enter valid Emailid</span>
+                       </p>
+                       <p>
+                          <label>Passwords <span>*</span></label>
+                          <input type="password" name="pass"  #Pass="ngModel"
+                          [(ngModel)]="this.userData.password" required>
+                          <span style="color:red ;" class="help-block" *ngIf="!Pass.valid && Pass.touched">Enter valid password</span>
+                       </p>
+                      <div class="login_submit">
+                         <!-- <a href="#">Lost your password?</a> -->
+                          <label for="remember">
+                              <input id="remember" type="checkbox">
+                              Remember me
+                          </label>
+                          <button type="submit">login</button>
+
+                      </div>
+
+                  </form>
+               </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="account_form">
+                <h2>Registartion</h2>
+                <form action="#">
+                    <div class="login_submit">
+                        <h3>Create a new account?</h3>
+                        <br/>
+                       <a routerLink="/client/registration">Click from here..</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <a routerLink="/client/registration"><button type="submit">Registartion</button></a>
+
+                    </div>
+
+                </form>
+             </div>
+        </div>
+          <!--login area start-->
+
+      </div>
+  </div>
+</div>
+<!-- customer login end -->

@@ -1,0 +1,54 @@
+
+<app-header></app-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Contact Us</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Contact us data</a></li>
+            </ol>
+        </div>
+      
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Contact us Data</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display min-w850">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>No</th>
+                                    <th> Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cu of contactusdata; let no=index;">
+                                   <td>{{no+1}}</td>
+                                    <td>{{cu.name}}</td>
+                                    <td>{{cu.email_id}}</td>
+                                    <td>{{cu.message}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a  class="btn btn-danger shadow btn-xs sharp"(click)="deletecontactus(cu.contactus_id_pk)"><i class="fa fa-trash"></i></a>
+                                        </div>												
+                                    </td>												
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

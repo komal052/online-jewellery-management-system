@@ -1,0 +1,60 @@
+
+<app-e-header></app-e-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Bill </a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Bill data</a></li>
+            </ol>
+        </div>
+      
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Bill Data</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display min-w850">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>No</th>
+                                    <th>User name</th>
+                                    <th>order price</th>
+                                    <th>Tax</th>
+                                    <th>Gst</th>
+                                    <th>Total Amount</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let b of billdata; let no=index;">
+                                   <td>{{no+1}}</td>
+                                    <td>{{b.f_name}}</td>
+                                    <td>{{b.total_price}}</td>
+                                    <td>{{b.tax}}</td>
+                                    <td>{{b.gst}}</td>
+                                    <td>{{b.total_amount}}</td>
+                                    <td>{{b.date}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
+                                            <a  class="btn btn-danger shadow btn-xs sharp" (click)="deletebill(b.bill_id_pk)"><i class="fa fa-trash"></i></a>
+                                        </div>												
+                                    </td>												
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

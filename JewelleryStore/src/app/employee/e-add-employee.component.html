@@ -1,0 +1,68 @@
+<app-e-header></app-e-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Employee</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert Employee</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Employee</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" method="POST" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="emp_name">Employee Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="emp_name" name="emp_name" #empName="ngModel"
+                                                [(ngModel)]="this.empData.emp_name" placeholder="Enter employee name" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="emp_address"> Employee Address <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" id="emp_address" name="emp_address" #empAddress="ngModel"
+                                                [(ngModel)]="this.empData.emp_address" placeholder="Enter employee address" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="emp_contact">Employee Contact
+                                              <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="emp_contact" name="emp_contact" #empContact="ngModel"
+                                              [(ngModel)]="this.empData.emp_contact" placeholder="Enter employee contact" required>
+                                          </div>
+                                      </div>   
+                        
+                                            <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button class="btn btn-primary" [disabled]="form.invalid">Submit </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,86 @@
+<app-header></app-header>
+<!--breadcrumbs area start-->
+<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <h3>contact</h3>
+                    <ul>
+                        <li><a href="index.html">home</a></li>
+                        <li>></li>
+                        <li>contact us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+
+ <!--contact map start-->
+<!-- <div class="contact_map">
+   <div class="container">
+        <div class="row">
+            <div class="col-12">
+               <div class="map-area">
+                  <div id="googleMap"></div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!--contact map end-->
+
+<!--contact area start-->
+<div class="contact_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+               <div class="contact_message content">
+                    <h3>contact us</h3>
+                     <p>You can contact us via goven email-address or contact no or simply write your message and send us we wil provide you the best service,thank you!</p>
+                    <ul>
+                        <li><i class="fa fa-fax"></i>  Address : 330,vip road,vip plaza,surat-395007</li>
+                        <li><i class="fa fa-phone"></i>8541236547</li>
+                        <li><i class="fa fa-envelope-o"><a href="#">shinezone@gmail.com</a></i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+               <div class="contact_message form">
+                    <h3>Contact us</h3>
+                    <form id="contact-form" method="POST" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                        <p>
+                           <label> Your Name (required)</label>
+                            <input name="name" placeholder="Name *" type="text" required ngModel #name="ngModel"
+                            [(ngModel)]="this.contactData.name">
+                        </p>
+                        <p>
+                           <label>  Your Email (required)</label>
+                            <input name="email_id" placeholder="Email *" type="email" required
+                            ngModel #email="ngModel"
+                            [(ngModel)]="this.contactData.email_id">
+                        </p>
+                        <p>
+                           <label>  Subject</label>
+                            <input name="subject" placeholder="Subject *" type="text" required
+                            ngModel #subject="ngModel"
+                            [(ngModel)]="this.contactData.subject">
+                        </p>
+                        <div class="contact_textarea">
+                            <label>  Your Message</label>
+                            <textarea placeholder="Message *" name="message"  class="form-control2" required
+                            ngModel #message="ngModel"
+                            [(ngModel)]="this.contactData.message"></textarea>
+                        </div>
+                        <button type="submit" [disabled]="form.invalid"> Send</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--contact area end-->

@@ -1,0 +1,83 @@
+
+<app-header></app-header>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Sale</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert Sale</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Sale</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" action="#" method="post"  #form="ngForm" (ngSubmit)="onSubmit(form)">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div  class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-jewellery">Jewellery Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                            <select class="form-control  " name="jewellery_id_fk"
+                                            #jewellery_id_fk="ngModel" [(ngModel)]="this.saleData.jewellery_id_fk" [compareWith]="compareFn" required >
+                                            <option value="0">SELECT</option>
+                                               <option *ngFor="let j of jewelleryData;" value="{{j.jewellery_id_pk}}">
+                                                 {{j.jewellery_name}}
+                                               </option>
+                                           </select>
+                                        </div>
+                                    </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="dcolor">Sale date<span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="date" class="form-control" id="sale_date" name="sale_date" #saleDate="ngModel"
+                                                [(ngModel)]="this.saleData.sale_date" placeholder="Enter date.." required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="shape">Quantity
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="qty" name="qty" #Qty="ngModel"
+                                                [(ngModel)]="this.saleData.qty" placeholder=" Enter Qauntity.." required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="gtype">Price 
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="price" name="price" #Price="ngModel"
+                                                [(ngModel)]="this.saleData.price" placeholder="Enter price.." required>
+                                            </div>
+                                        </div>
+                                       
+                                
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary"[disabled]="form.invalid">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+

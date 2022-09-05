@@ -1,0 +1,60 @@
+
+<app-header></app-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Purchase</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Purchase data</a></li>
+            </ol>
+        </div>
+      
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Purchase Data</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display min-w850">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>No</th>
+                                    <th>User Name</th>
+                                    <th>Jewellery</th>
+                                    <th>Order Total Price</th>
+                                    <th> Purchase Date</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let p of purchasedata; let no=index;">
+                                   <td>{{no+1}}</td>
+                                    <td>{{p.f_name}}</td>
+                                    <td>{{p.jewellery_name}}</td>
+                                    <td>{{p.total_price}}</td>
+                                    <td>{{p.purchase_date}}</td>
+                                    <td>{{p.quantity}}</td>
+                                    <td>{{p.price}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                            <a  class="btn btn-danger shadow btn-xs sharp" (click)="deletepurchase(p.purchase_id_pk)"><i class="fa fa-trash"></i></a>
+                                        </div>												
+                                    </td>												
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

@@ -1,0 +1,69 @@
+
+<app-header></app-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Registration</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Registration data</a></li>
+            </ol>
+        </div>
+      
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Registration Data</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display min-w850">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Profile</th>
+                                    <th>Personal Details</th>
+                                    <th>Status</th>
+                                    <th>Address Details</th>
+                                    <th>User type</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let u of userdata; let no=index;">
+                                   <td>{{no+1}}</td>
+                                   <td><img width="100" src="{{baseUrl + u.profile}}" alt=""></td>
+                                    <td><b>First Name : </b>{{u.f_name}}<br>
+                                        <b>Last Name : </b>{{u.l_name}} <br>
+                                        <b>Gender : </b>{{u.gender}} <br>
+                                        <b>Birthdate : </b><br>{{u.birthdate}} <br>
+                                        <b>Email : </b> {{u.email}} <br>
+                                        <b>Contact No : </b> {{u.contact}}
+                                    </td>
+                                    <td>
+                                        <b>Status : </b>{{u.status}} <br>
+                                        <b>Anniversary Date : </b>{{u.anniversary_date}}
+                                    </td>
+                                    <td><b> State Name : </b> {{u.state_name}}<br>
+                                        <b> City Name : </b> {{u.city_name}}<br>
+                                        <b> Address : </b> {{u.address}}<br>
+                                        <b> Pincode: </b>  {{u.pincode}}
+                                    </td>
+                                    <td>{{u.u_type}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1" [routerLink]="['/admin/edituser',u.user_id_pk]"><i class="fa fa-pencil"></i></a>
+                                            <a class="btn btn-danger shadow btn-xs sharp"(click)="deleteuser(u.user_id_pk)"><i class="fa fa-trash"></i></a>
+                                        </div>												
+                                    </td>												
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

@@ -1,0 +1,119 @@
+<app-header></app-header>
+<br>
+<!-- my account start  -->
+<section class="main_content_area">
+  <div class="container">
+      <div class="account_dashboard">
+          <div class="row">
+              <div class="col-sm-12 col-md-3 col-lg-3">
+                  <!-- Nav tabs -->
+                  <div class="dashboard_tab_button">
+                      <ul role="tablist" class="nav flex-column dashboard-list">
+                          <!-- <li><a href="#dashboard" data-toggle="tab" class="nav-link active">Dashboard</a></li> -->
+                          <li> <a href="#orders" data-toggle="tab" class="nav-link">Orders</a></li>
+                          <li><a href="#address" data-toggle="tab" class="nav-link">Addresses</a></li>
+                          <li><a href="#account-details" data-toggle="tab" class="nav-link">Profile details</a></li>
+                          <li><a  class="nav-link" (click)="logout()">logout</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-sm-12 col-md-9 col-lg-9">
+                  <!-- Tab panes -->
+                  <div class="tab-content dashboard_content">
+                      <!-- <div class="tab-pane fade show active" id="dashboard">
+                          <h3>Dashboard </h3>
+                          From your account dashboard. you can easily check &amp; view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a href="#">Edit your password and account details.</a>
+                      </div> -->
+                      <div class="tab-pane fade" id="orders">
+                          <h3>Orders</h3>
+                          <div class="table-responsive">
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th>Order</th>
+                                          <th>Date</th>
+                                          <th>Total</th>
+                                          <th>Action</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let o of orderdata let no=index;">
+                                          <td>{{no+1}}</td>
+                                          <td>{{o.date}}</td>
+                                          <td>₹{{o.total_amount}}/-</td>
+                                          <td><a href="#orderproduct" data-toggle="tab" class="nav-link" class="view" (click)="showorderproduct(o.order_id_pk)">view</a></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                      <div *ngIf="isshow">
+                        <h3>Order Products</h3>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Orderproduct</th>
+                                        <th colspan="2">product details</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let op of orderproductdata let no=index;">
+                                        <td>{{no+1}}</td>
+                                        <td><img width="100" height="100" src="{{baseUrl + op.images}}" alt=""></td>
+                                          <td>{{op.jewellery_name}}<br> ₹{{op.price}}/-
+                                         </td>
+                                        <td>{{op.status===1?"Processing":"Deliver"}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                      <div class="tab-pane" id="address">
+                         The following addresses will be used on the checkout page by default.
+                          <h4 class="billing-address">Billing address</h4>
+                          <a href="#" class="view">Edit</a><br>
+                          <strong>{{this.userData.f_name}} {{this.userData.l_name}}</strong>
+                          <address>
+                            <span><strong>address(houseno:):</strong>{{this.userData.address}}</span>,
+                            <br>
+                            <span><strong>City:</strong>{{this.userData.city_name}}</span>,
+                            <br>
+                            <span><strong>State:</strong>{{this.userData.state_name}}</span>,
+                            <br>
+                            <span><strong>ZIP:</strong>{{this.userData.pincode}}</span>
+                            <br>
+                          </address>
+                      </div>
+                      <div class="tab-pane fade" id="account-details">
+                          <h3>My Profile </h3>
+                          <div class="login">
+                              <div class="login_form_container">
+                                  <div class="account_login_form">
+                                    <div>
+                                      <span><img src="{{baseUrl + userData.profile}}" width="200" height="200"></span><br>
+                                    <span><strong>Name:</strong>{{this.userData.f_name}} {{this.userData.l_name}}</span>
+                                    <br>
+                                    <span><strong>Address:</strong> {{this.userData.address}}</span>
+                                    <br>
+                                    <span><strong>Email:</strong> {{this.userData.email}}</span>
+                                    <br>
+                                    <span><strong>Mobile no:</strong> {{this.userData.contact}}</span>
+                                    <br>
+                                    <a [routerLink]="['/client/edituser',this.userData.user_id_pk]">Edit Profile</a>
+                                  </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- my account end   -->

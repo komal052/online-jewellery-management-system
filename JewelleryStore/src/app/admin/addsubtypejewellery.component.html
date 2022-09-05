@@ -1,0 +1,92 @@
+<app-header></app-header>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)"> Jewellery Product</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert Jewellery Product</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Jewellery Product</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" method="post"  #form="ngForm"  (ngSubmit)="onsubmit(form)">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="jwlname">Jewellery Type
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control " name="jewellery_id_fk " required
+                                                #jewellery_id_pk="ngModel" [(ngModel)]="this.subjewellryData.jewellery_id_fk" [compareWith]="comaprefun">
+                                                <option value="0">SELECT</option>
+                                                   <option *ngFor="let j of jewellerydata;" value="{{j.jewellery_id_pk}}">
+                                                     {{j.jewellery_name}}
+                                                   </option>
+                                                   </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="dcolor">Jewellery Name<span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="subtype" name="subtype" placeholder="enter subtype jewellery name.."
+                                                ngModel required #subtype="ngModel" [(ngModel)]="this.subjewellryData.subtype">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="price">Price
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="price" name="val-digits" placeholder="enter price.."
+                                                ngModel required #price="ngModel" [(ngModel)]="this.subjewellryData.price">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="img">Image <span
+                                                  class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                              <input type="file" name="file"
+                                              #subjewellery_photo (change)="uploadFile(subjewellery_photo.files)">
+                                          </div>
+                                      </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="weight">Description <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" id="desc" name="desc" placeholder="enter Description.." required
+                                                ngModel  #desc="ngModel" [(ngModel)]="this.subjewellryData.description" cols="10" rows="5"></textarea>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

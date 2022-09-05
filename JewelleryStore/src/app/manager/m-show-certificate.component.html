@@ -1,0 +1,52 @@
+
+<app-m-header></app-m-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Certificate</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Certificate data</a></li>
+            </ol>
+        </div>
+      
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Certificate Data</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display min-w850">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>No</th>
+                                    <th>Certificate No</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let c of certidata; let no=index;">
+                                   <td>{{no+1}}</td>
+                                    <td>{{c.certi_no}}</td>
+                                    <td><img width="100" src="{{baseUrl + c.image}}" alt=""></td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a  class="btn btn-primary shadow btn-xs sharp mr-1" [routerLink]="['/manager/m_edit_certificate',c.certi_id_pk]"><i class="fa fa-pencil"></i></a>
+                                            <a  class="btn btn-danger shadow btn-xs sharp" (click)="deletecerti(c.certi_id_pk)"><i class="fa fa-trash"></i></a>
+                                        </div>												
+                                    </td>												
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

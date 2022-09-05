@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0B371D15-DA18-4740-96B1-812CB86A6202}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eOperationlib</RootNamespace>
+    <AssemblyName>eOperationlib</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.OpenApi, Version=1.2.3.0, Culture=neutral, PublicKeyToken=3f5743946376f042, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OpenApi.1.2.3\lib\net46\Microsoft.OpenApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.3\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bill_master\bill_tableDB.cs" />
+    <Compile Include="bill_master\bill_tableEntities.cs" />
+    <Compile Include="order_product\orderproduct_tableDB.cs" />
+    <Compile Include="order_product\orderproduct_tableEntities.cs" />
+    <Compile Include="cart_product\cartproduct_tableDB.cs" />
+    <Compile Include="cart_product\cartproduct_tableEntities.cs" />
+    <Compile Include="product_review_master\product_review_tableDB.cs" />
+    <Compile Include="product_review_master\product_review_tableEntities.cs" />
+    <Compile Include="cart_master\cart_tableDB.cs" />
+    <Compile Include="cart_master\cart_tableEntities.cs" />
+    <Compile Include="jewellery_image_master\jewellery_image_tableDB.cs" />
+    <Compile Include="jewellery_image_master\jewellery_image_tableEntities.cs" />
+    <Compile Include="city_master\city_tableDB.cs" />
+    <Compile Include="city_master\city_tableEntities.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="certificate_master\certificate_tableDB.cs" />
+    <Compile Include="certificate_master\certificate_tableEntities.cs" />
+    <Compile Include="diamond_master\diamond_tableDB.cs" />
+    <Compile Include="diamond_master\diamond_tableEntities.cs" />
+    <Compile Include="discount_master\discount_tableDB.cs" />
+    <Compile Include="discount_master\discount_tableEntities.cs" />
+    <Compile Include="order_master\order_tableDB.cs" />
+    <Compile Include="order_master\order_tableEntities.cs" />
+    <Compile Include="payment_master\payment_tableDB.cs" />
+    <Compile Include="payment_master\payment_tableEntities.cs" />
+    <Compile Include="wishlist_master\wishlist_tableDB.cs" />
+    <Compile Include="wishlist_master\wishlist_tableEntities.cs" />
+    <Compile Include="return_jewellery_master\return_jewellery_tableDB.cs" />
+    <Compile Include="return_jewellery_master\return_jewellery_tableEntities.cs" />
+    <Compile Include="silver_master\silver_tableDB.cs" />
+    <Compile Include="silver_master\silver_tableEntities.cs" />
+    <Compile Include="gold_master\gold_tableDB.cs" />
+    <Compile Include="gold_master\gold_tableEntities.cs" />
+    <Compile Include="supplier_master\supplier_tableDB.cs" />
+    <Compile Include="supplier_master\supplier_tableEntities.cs" />
+    <Compile Include="employee_master\employee_tableDB.cs" />
+    <Compile Include="employee_master\employee_tableEntities.cs" />
+    <Compile Include="contactus_master\contactus_tableDB.cs" />
+    <Compile Include="contactus_master\contactus_tableEntities.cs" />
+    <Compile Include="purchase_master\purchase_tableDB.cs" />
+    <Compile Include="purchase_master\purchase_tableEntities.cs" />
+    <Compile Include="subtype_jewellery_master\subtype_jewellery_tableDB.cs" />
+    <Compile Include="subtype_jewellery_master\subtype_jewellery_tableEntities.cs" />
+    <Compile Include="jewellery_master\jewellery_tableDB.cs" />
+    <Compile Include="jewellery_master\jewellery_tableEntities.cs" />
+    <Compile Include="feedback_master\feedback_tableDB.cs" />
+    <Compile Include="feedback_master\feedback_tableEntities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="sale_master\sale_tableDB.cs" />
+    <Compile Include="sale_master\sale_tableEntities.cs" />
+    <Compile Include="registration_master\registration_tableDB.cs" />
+    <Compile Include="registration_master\registration_tableEntities.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="state_master\state_tableDB.cs" />
+    <Compile Include="state_master\state_tableEntities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eCommanLib\eCommanLib.csproj">
+      <Project>{eea38b8f-7362-485f-bb98-939913c6e90d}</Project>
+      <Name>eCommanLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

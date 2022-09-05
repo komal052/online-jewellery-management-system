@@ -1,0 +1,59 @@
+
+<app-header></app-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Order</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Order data</a></li>
+            </ol>
+        </div>
+      
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Order Data</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="example3" class="display min-w850">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>No</th>
+                                    <th>Jewellery</th>
+                                    <th>quantity</th>
+                                    <th>Total amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let op of orderproductdata; let no=index;">
+                                   <td>{{no+1}}</td>
+                                   <td>{{op.jewellery_name}}
+                                       <br> <img width="200" src="{{baseUrl + op.images}}" alt="">
+                                   </td>
+                                    <td>{{op.quantity}}</td>
+                                    <td>{{op.total_amount}}</td>
+                                    <td>{{op.date}}</td>
+                                    <td class="card-body">
+                                        <!-- <button type="button" class="btn light btn-primary" style="width: 150px;" >Processing</button><br><br> -->
+                                        <button type="submit" class="btn light btn-success"  style="width: 150px;" (click)="onStatus(op.order_product_id_pk)"[ngStyle]="{
+                                            'background-color' : op.status ===1 ? 'blue' : 'green'
+                                          }">{{ op.status === 1 ? "Processing" : "Deliver" }}</button>
+                            
+                                    </td>											
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    

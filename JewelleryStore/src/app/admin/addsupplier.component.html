@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Supplier</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert Supplier</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert Supplier</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" #form="ngForm" (ngSubmit)="onsubmit(form)" method="post">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="sup_name">Supplier Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="sup_name" name="sup_name" placeholder="Enter supplier name"
+                                                ngModel required #sup_name="ngModel" [(ngModel)]="this.supplierdata.sup_name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="factory_name"> Factory Name <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="factory_name" name="factory_name" placeholder="Enter factory name"
+                                                ngModel required #factory_name="ngModel" [(ngModel)]="this.supplierdata.factory_name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="factory_contact">factory Contact
+                                              <span class="text-danger">*</span>
+                                          </label>
+                                          <div class="col-lg-6">
+                                              <input type="text" class="form-control" id="factory_contact" name="val-digits" placeholder="Enter factory contact"
+                                              ngModel required  #factory_contact="ngModel" [(ngModel)]="this.supplierdata.factory_contact" required>
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="supplier_contact">Supplier Contact
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="sup_contact" name="val-digits" placeholder="Enter supplier contact"
+                                            ngModel required #sup_contact="ngModel" [(ngModel)]="this.supplierdata.sup_contact">
+                                        </div>
+                                    </div>
+
+                                            <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary"[disabled]="form.invalid">Submit </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

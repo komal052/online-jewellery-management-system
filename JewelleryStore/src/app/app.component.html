@@ -1,0 +1,5 @@
+<app-admin *ngIf="isLoggedIn && user_type =='Admin'" ></app-admin>
+<app-manager *ngIf="isLoggedIn && user_type == 'Manager'" ></app-manager>
+<app-employee *ngIf="isLoggedIn && user_type == 'Employee'" ></app-employee>
+<app-login *ngIf="!isLoggedIn"></app-login>
+

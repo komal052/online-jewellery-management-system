@@ -1,0 +1,228 @@
+<app-m-header></app-m-header>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Insert User</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Insert User</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide"  method="post" #form="ngForm"
+                                (ngSubmit)="onSubmit(form)">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_fname">First Name
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="user_fname"
+                                                    name="user_fname" #Fname="ngModel"
+                                                    [(ngModel)]="this.userData.f_name" placeholder="Enter first name"
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_lname"> Last Name <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="user_lname"
+                                                    name="user_lname" #Lname="ngModel"
+                                                    [(ngModel)]="this.userData.l_name" placeholder="Enter Last name"
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="gen">Gender
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                Male&nbsp;<input type="radio" id="male" name="gen" value="male"
+                                                    #Gen="ngModel" [(ngModel)]="this.userData.gender">&nbsp;&nbsp;
+                                                Female&nbsp;<input type="radio" id="female" name="gen" value="female"
+                                                    #Gen="ngModel" [(ngModel)]="this.userData.gender">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_birth">Birthdate
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="date" class="form-control" id="user_birth"
+                                                    name="user_birth" #DOB="ngModel"
+                                                    [(ngModel)]="this.userData.birthdate" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_type">Status
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control default-select"  name="status" 
+                                                #status="ngModel" [(ngModel)]="this.userData.status"
+                                                required required (change)="OnStatusChange(this.userData.status)">
+                                                <option value="single">Single</option>
+                                                <option value="Married">Married</option>
+                                                
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_anniversary">Anniversary
+                                                date
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="date" class="form-control" id="user_anniversary"
+                                                    name="user_anniversary" #Anni="ngModel"
+                                                    [(ngModel)]="this.userData.anniversary_date" required  [disabled]="!status">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="state_id_fk">State<span
+                                                    class="text-danger">*</span>
+                                            </label>
+
+                                            <div class="col-lg-6">
+                                                <select class="form-control " name="state_id_fk"
+                                                    #state_id_fk="ngModel"
+                                                    [(ngModel)]="this.userData.state_id_fk"
+                                                    [compareWith]="compareFn" (change)="OnChange($event)" required>
+                                                    <option value="0">SELECT</option>
+                                                    <option *ngFor="let state of stateList;" value="{{state.state_id_pk}}">
+                                                        {{state.state_name}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="city_id_fk">City
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" name="city_id_fk"
+                                                    #city_id_fk="ngModel" [(ngModel)]="this.userData.city_id_fk"
+                                                    [compareWith]="compareFn1" required>
+                                                    <option value="0">SELECT</option>
+                                                    <option *ngFor="let city of cityList;" value="{{city.city_id_pk}}">
+                                                        {{city.city_name}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_address">Address <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" id="user_address" name="user_address"
+                                                    rows="5" placeholder="Enter address" #Address="ngModel"
+                                                    [(ngModel)]="this.userData.address" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="pincode">Pincode <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" class="form-control" id="pincode" name="pincode"
+                                                    rows="5" placeholder="Enter pincode" #pincode="ngModel"
+                                                    [(ngModel)]="this.userData.pincode" required>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_email">Email <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="user_email"
+                                                    name="user_email" #Email="ngModel" [(ngModel)]="this.userData.email"
+                                                    placeholder="Your valid email.." required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_pass">Password
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="password" class="form-control" id="user_pass"
+                                                    name="user_pass" #Pass="ngModel"
+                                                    [(ngModel)]="this.userData.password"
+                                                    placeholder="Choose a safe one.." required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_contact">Contact No
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="user_contact"
+                                                    name="user_contact" #Cnt="ngModel"
+                                                    [(ngModel)]="this.userData.contact" placeholder="enter a contact no"
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="user_type">User type
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control default-select"  name="user_type" 
+                                                #user_type="ngModel" [(ngModel)]="this.userData.u_type" required>
+                                               
+                                                <option>Employee</option>
+                                                <option>Manager</option>
+                                                </select>
+                                              
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="profile">Profile <span
+                                                    class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="file" name="file" #user_photo
+                                                    (change)="uploadFile(user_photo.files)">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Add </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
